@@ -1,0 +1,33 @@
+# BITA — Business-IT Alignment Intelligent System
+# Dependencies for Layer 1 & 2 Implementation
+
+# Core LLM Integration
+langchain-openai
+langchain-anthropic
+openai
+
+# LangChain Core (for agent orchestration in Layer 4)
+langchain
+langchain-core  # For set_llm_cache
+langchain-community  # For SQLiteCache
+langgraph>=0.2.0
+
+# Knowledge Graph
+rdflib>=7.0.0
+networkx>=3.0
+
+# PDF Processing
+pdfplumber>=0.10.0
+
+# Validation (for Layer 3)
+pyshacl>=0.25.0
+
+# Visualization
+pyvis>=0.3.0
+plotly>=5.0.0
+
+# Dashboard (for future implementation)
+streamlit>=1.30.0
+
+# Utilities
+python-dotenv>=1.0.0
