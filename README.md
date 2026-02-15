@@ -52,13 +52,6 @@ streamlit run dashboard/app.py
 
 **Access at:** http://localhost:8501
 
-### Run Command Line Example
-
-```bash
-# Run complete 4-layer pipeline on a PDF
-python example_full_pipeline.py
-```
-
 ---
 
 ## Architecture
@@ -267,36 +260,35 @@ print(f"Coverage: {metrics['coverage']:.2f}%")
 ## Project Structure
 
 ```
-bita/
+strategic-plan-synchronization-system/
 ├── core/                       # Core analysis modules
 │   ├── __init__.py
+│   ├── README.md              # Core modules guide
 │   ├── ingestion.py           # PDF parsing
 │   ├── knowledge_graph.py     # RDF Knowledge Graph
 │   ├── extractor.py           # Layer 1: Extraction
 │   ├── alignment.py           # Layer 2: Alignment
 │   ├── completeness.py        # Layer 3: Completeness
 │   ├── benchmarking.py        # Layer 4: Benchmarking
-│   └── metrics.py             # Score computation
+│   ├── metrics.py             # Score computation
+│   ├── llm_factory.py         # Multi-provider LLM support
+│   ├── llm_cache.py           # LLM response caching
+│   ├── llm_logger.py          # LLM call logging
+│   └── pipeline_state.py      # Pipeline state management
 ├── dashboard/                  # Streamlit dashboard
 │   ├── app.py                 # Main application
-│   ├── pages/                 # Individual pages
-│   │   ├── page_upload.py
-│   │   ├── page_overall_sync.py
-│   │   ├── page_strategy_matrix.py
-│   │   ├── page_gap_analysis.py
-│   │   └── page_knowledge_graph.py
-│   └── README.md
-├── samples/                    # Sample PDFs
-├── output/                     # Analysis outputs
-├── example_layer1_2.py        # Layer 1-2 demo
-├── example_full_pipeline.py   # Complete demo
-├── run_dashboard.sh           # Dashboard launcher
-├── requirements.txt           # Dependencies
-├── PROJECT_PLAN.md            # Technical specification (1,101 lines)
-├── FINAL_PLAN_SUMMARY.md      # Executive summary
-├── IMPLEMENTATION_LAYER1_2.md # Layer 1-2 docs
-├── IMPLEMENTATION_LAYER3_4.md # Layer 3-4 docs
-├── IMPLEMENTATION_DASHBOARD.md# Dashboard docs
+│   └── pages/                 # Individual pages
+│       ├── page_upload.py
+│       ├── page_overall_sync.py
+│       ├── page_strategy_matrix.py
+│       ├── page_gap_analysis.py
+│       └── page_knowledge_graph.py
+├── lib/                       # Frontend libraries
+│   ├── bindings/              # JS bindings
+│   ├── tom-select/            # Select dropdown library
+│   └── vis-9.1.2/             # Network visualization library
+├── run_dashboard.sh           # Dashboard launcher script
+├── requirements.txt           # Python dependencies
 └── README.md                  # This file
 ```
 
@@ -304,22 +296,7 @@ bita/
 
 ## Documentation
 
-### Technical Specifications
-- **PROJECT_PLAN.md** (1,101 lines) - Complete technical specification
-- **FINAL_PLAN_SUMMARY.md** (232 lines) - Executive summary
-- **FINAL_VERIFICATION.md** - Final verification checklist
-- **coursework.pdf** - Original coursework requirements
-
-### Implementation Guides
-- **IMPLEMENTATION_LAYER1_2.md** (404 lines) - Layer 1-2 implementation
-- **IMPLEMENTATION_LAYER3_4.md** (404 lines) - Layer 3-4 implementation
-- **IMPLEMENTATION_DASHBOARD.md** (600+ lines) - Dashboard implementation
-
-### Module Documentation
-- **core/README.md** - Core modules guide
-- **dashboard/README.md** - Dashboard usage guide
-
-**Total Documentation:** ~4,000+ lines
+- **core/README.md** - Core modules documentation
 
 ---
 
@@ -363,13 +340,6 @@ docker build -t bita .
 docker run -p 8501:8501 -e OPENAI_API_KEY="sk-..." bita
 ```
 
-### Streamlit Cloud
-
-1. Push to GitHub
-2. Connect to Streamlit Cloud
-3. Set `OPENAI_API_KEY` secret
-4. Deploy with `dashboard/app.py`
-
 ---
 
 ## Sample Case
@@ -384,19 +354,9 @@ The system is designed for **IT strategic plans** but works for any strategic-ac
 
 ---
 
-## Stats
-
-- **Total Code:** 6,700+ lines
-  - Core modules: 2,339 lines
-  - Dashboard: 1,839 lines
-  - Examples: 386 lines
-- **Documentation:** 4,000+ lines
-- **Grand Total:** ~10,700+ lines
-
 **Status:** ✅ **Production Ready**
 **Version:** 0.1.0
-**Last Updated:** 2026-02-05
-**Implemented By:** Claude Sonnet 4.5
+**Last Updated:** 2026-02-15
 
 ---
 
